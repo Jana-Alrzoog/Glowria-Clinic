@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Glowria Clinic</title>
+        <link rel="stylesheet" href="form_Style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Glowria Logo">
+            </div>
+            <nav class="navigation">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Page Content for 'Patient's Medications' -->
+        <div id="prescribe-container">
+            <div class="form-container">
+                <h1>Patient's Medications</h1>
+                <form>
+                    <label for="patient-name">Patient's Name:</label>
+                    <input type="text" id="patient-name" name="patient-name" value="John Doe">
+
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" value="30">
+
+                    <label>Gender:</label>
+                    <div class="gender-group">
+                        <label><input type="radio" id="male" name="gender" value="male" checked> Male</label>
+                        <label><input type="radio" id="female" name="gender" value="female"> Female</label>
+                    </div>
+
+                    <label>Medications:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="aspirin" name="medications" value="aspirin" checked> Aspirin</label>
+                        <label><input type="checkbox" id="ibuprofen" name="medications" value="ibuprofen"> Ibuprofen</label>
+                        <label><input type="checkbox" id="paracetamol" name="medications" value="paracetamol" checked> Paracetamol</label>
+                        <label><input type="checkbox" id="antibiotics" name="medications" value="antibiotics"> Antibiotics</label>
+                    </div>
+
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <p>Glowria Clinic • Beauty & Wellness</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/facebook-icon.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/twitter-icon.png" alt="Twitter">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/instagram-icon.png" alt="Instagram">
+                    </a>
+                    <a href="mailto:info@glowria.com">
+                        <img src="images/email-icon.png" alt="Email">
+                    </a>
+                </div>
+                <p>© 2025 Glowria Clinic. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
