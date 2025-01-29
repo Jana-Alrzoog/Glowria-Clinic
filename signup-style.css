@@ -172,8 +172,10 @@ input:focus, select:focus {
     border-color: #6c8c85;
     box-shadow: 0 0 5px rgba(108, 140, 133, 0.5);
     outline: none;
+  accent-color: #8dc6b5; 
+    background-color: white;
 }
-file
+
 
 
 input[type="radio"]:hover,
