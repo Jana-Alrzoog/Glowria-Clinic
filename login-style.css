@@ -158,6 +158,8 @@ input {
     color: #333333;
     transition: border-color 0.3s, box-shadow 0.3s;
     box-sizing: border-box;
+    accent-color: #8dc6b5; 
+    background-color: white;
 }
 
 input:focus {
