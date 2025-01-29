@@ -376,9 +376,6 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px); 
-   /* border-radius: 3px;
-    padding: 3px;
-    cursor: pointer;*/
 }
 
 /* Hover effect for input fields */
@@ -400,14 +397,14 @@ button:hover {
     outline: none;
     background-color: #ffffff;
 }
-/* لتغيير لون مربعات الاختيار */
+
 .checkbox-group input[type="checkbox"] {
-    accent-color: #8dc6b5; /* لون الإطار */
-    background-color: white; /* لون الخلفية عند التحديد */
+    accent-color: #8dc6b5; 
+    background-color: white; 
 }
 
-/* لتغيير لون أزرار الراديو */
+
 .gender-group input[type="radio"] {
-    accent-color: #8dc6b5; /* لون الإطار */
-    background-color: white; /* لون الخلفية عند التحديد */
+    accent-color: #8dc6b5; 
+    background-color: white; 
 }
