@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'db_connection.php';
+include 'DB_Connection.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'doctor') {
-    header("Location: Log-in_Page.php");
+    header("Location: Log_in_Page.php");
     exit();
 }
 
