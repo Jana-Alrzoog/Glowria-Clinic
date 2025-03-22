@@ -177,16 +177,26 @@ hr {
   justify-content: center;
 }
 
-.wrapper .left{
-  width: 350px;
-  background-image: url(images/Dr.Sara.jpg);
+/*.wrapper .left{
+  max-width: 350px;
+ background-image: url(images/Dr.Sara.jpg);
   background-size: 350px 450px;
   padding: 30px 25px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   text-align: center;
   color: #fff;
-}
+}*/
+
+
+/*.left {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #eee;
+}*/
+
 
 .info_data {
 flex-wrap: wrap;
@@ -422,9 +432,6 @@ flex-wrap: wrap;
   border-radius: 10px;
 }
 
-.Prescribe {
-  color: #6c8c85;
-}
 
 .Confirm span:first-child {
   position: relative;
@@ -473,6 +480,23 @@ flex-wrap: wrap;
   transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
+
+.Prescribe {
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: #6c8c85;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.Prescribe:hover {
+  background-color: #9aaeaa;
+  transform: scale(1.05);
+}
 
 
 
@@ -563,5 +587,4 @@ animation: move-wave 3s;
 .waveAnimation .waveBottom {
   animation: move_wave 15s linear infinite;
 }
-
 
