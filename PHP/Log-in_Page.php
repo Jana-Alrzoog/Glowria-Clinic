@@ -4,14 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // ====== Database Connection (MySQLi) ======
-$host = 'localhost';
-$db   = 'Glowria_clinic_database';
-$user = 'root';
-$pass = 'root'; // عدل كلمة المرور بحسب إعداداتك
-$conn = new mysqli($host, $user, $pass, $db, 8889);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
 
 // ====== Handle Login ======
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password_input = $_POST['password'];
     $role = $_POST['role'];
 
-    // تحديد الاستعلام بناءً على نوع المستخدم
+    
     if ($role === 'doctor') {
         $sql = "SELECT * FROM Doctor WHERE emailAddress = ?";
     } else {
@@ -33,15 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result->num_rows === 1) {
         $user_row = $result->fetch_assoc();
-        // التحقق من كلمة المرور باستخدام password_verify
+        
         if (password_verify($password_input, $user_row['password'])) {
             $_SESSION['user_id'] = $user_row['id'];
-            $_SESSION['user_type'] = $role;
+            $_SESSION['user_role'] = $role;  
+
             if ($role === 'doctor') {
-                header("Location: Doctor_Page.html");
+                header("Location: Doctor_Page.php");
                 exit;
             } else {
-                header("Location: Patient_Page.html");
+                header("Location: Patient_Page.php");
                 exit;
             }
         } else {
