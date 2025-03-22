@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // ====== Database Connection (MySQLi) ======
-include 'db_connection.php';
+include 'DB_Connection.php';
 
 // ====== Handle Login ======
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         } else {
-            header("Location: Log-in_Page.php?error=invalid_credentials");
+            header("Location: Log_in_Page.php?error=invalid_credentials");
             exit;
         }
     } else {
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if (isset($_GET['error']) && $_GET['error'] === 'invalid_credentials'): ?>
                 <p style="color:red;">Invalid email or password. Please try again.</p>
             <?php endif; ?>
-            <form action="Log-in_Page.php" method="POST">
+            <form action="Log_in_Page.php" method="POST">
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
