@@ -10,8 +10,7 @@ error_reporting(E_ALL);
 ini_set('log_errors', '1');
 ini_set('display_errors', '1');
 
-include 'db_connection.php';
-
+include 'DB_Connection.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != "doctor") {
     header("Location: Home.html");
@@ -20,7 +19,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != "doctor") {
 
 $doctor_id = $_SESSION['user_id'];
 
-
 $sql_doctor = "SELECT firstName, lastName, emailAddress, SpecialityID, uniqueFileName FROM doctor WHERE id = ?";
 
 $stmt = $conn->prepare($sql_doctor);
@@ -28,7 +26,6 @@ $stmt->bind_param("i", $doctor_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $doctor = $result->fetch_assoc();
-
 
 $speciality_name = "";
 if ($doctor && isset($doctor['SpecialityID'])) {
@@ -97,7 +94,7 @@ if ($doctor && isset($doctor['SpecialityID'])) {
                         <div class="data"><h4>Email:</h4><p><?php echo $doctor['emailAddress']; ?></p></div>
                         <div class="data"><h4>ID:</h4><p><?php echo $doctor_id; ?></p></div>
 
-                        <button class="LogOut" role="button"><a href="signout.php" class="LogOut2">Sign out</a></button>
+                        <button class="LogOut" role="button"><a href="Sign_Out.php" class="LogOut2">Sign out</a></button>
                     </div>
 
                 </div>
@@ -202,13 +199,13 @@ if ($doctor && isset($doctor['SpecialityID'])) {
 
         <?php
         $sql_patients = "SELECT DISTINCT patient.firstName, patient.lastName, patient.gender, patient.DoB,
-                    GROUP_CONCAT(medication.medicationName SEPARATOR ', ') AS medications
-                 FROM appointment
-                 JOIN patient ON appointment.PatientID = patient.id
-                 LEFT JOIN prescription ON appointment.id = prescription.AppointmentID
-                 LEFT JOIN medication ON prescription.MedicationID = medication.id
-                 WHERE appointment.DoctorID = ? AND appointment.status = 'Done'
-                 GROUP BY patient.id";
+    GROUP_CONCAT(medication.medicationName SEPARATOR ', ') AS medications
+ FROM appointment
+ JOIN patient ON appointment.PatientID = patient.id
+ LEFT JOIN prescription ON appointment.id = prescription.AppointmentID
+ LEFT JOIN medication ON prescription.MedicationID = medication.id
+ WHERE appointment.DoctorID = ? AND appointment.status = 'Done'
+ GROUP BY patient.id";
 
         $stmt = $conn->prepare($sql_patients);
         $stmt->bind_param("i", $doctor_id);
