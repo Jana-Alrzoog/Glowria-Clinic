@@ -1,24 +1,36 @@
-$(document).ready(function () {
-    $('.confirm-btn').click(function () {
-        var button = $(this);
-        var row = button.closest('tr');
-        var appointmentId = row.data('id');
 
-        $.ajax({
-            url: 'confirm_appointment.php',
-            method: 'POST',
-            data: { appointment_id: appointmentId },
-            success: function (response) {
-                if (response.trim() === "true") {
-                    button.remove();
-                    row.find('.status-text').text("Confirmed");
-                } else {
-                    alert("Failed to confirm appointment.");
-                }
-            },
-            error: function () {
-                alert("AJAX error.");
-            }
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".confirm-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const appointmentId = this.dataset.id;
+        const row = this.closest("tr");
+  
+        fetch("confirm_appointment.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: "id=" + encodeURIComponent(appointmentId)
+        })
+        .then(response => response.text())
+        .then(data => {
+          if (data.trim() === "true") {
+           
+            row.querySelector(".status-text").textContent = "Confirmed";
+            
+            this.remove();
+            
+            const prescribeDiv = document.createElement("div");
+            prescribeDiv.style.marginTop = "5px";
+            prescribeDiv.innerHTML = `<a class="Prescribe" href="Prescribe_Medication_Page.php?appointment_id=${appointmentId}">Prescribe</a>`;
+            row.querySelector(".status-cell").appendChild(prescribeDiv);
+          } else {
+            alert("Failed to confirm appointment.");
+          }
+        })
+        .catch(() => {
+          alert("AJAX error.");
         });
+      });
     });
-});
+  });

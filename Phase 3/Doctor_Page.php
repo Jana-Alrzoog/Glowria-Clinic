@@ -114,25 +114,26 @@ if ($doctor && isset($doctor['SpecialityID'])) {
         $appointments_result = $stmt->get_result();
         while ($row = $appointments_result->fetch_assoc()):
         ?>
-            <tr data-id="<?php echo $row['id']; ?>">
-                <td><?php echo $row['date']; ?></td>
-                <td><?php echo date("g A", strtotime($row['time'])); ?></td>
-                <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
-                <td><?php echo date("Y") - date("Y", strtotime($row['DoB'])); ?></td>
-                <td><?php echo $row['gender']; ?></td>
-                <td><?php echo $row['reason']; ?></td>
-                <td class="status-cell">
-                    <?php if ($row['status'] === 'Pending'): ?>
-                        <button class="Confirm confirm-btn" data-id="<?php echo $row['id']; ?>">Confirm</button>
-                        <div class="status-text">Pending</div>
-                    <?php else: ?>
-                        <div>Confirmed</div>
-                        <div style="margin-top: 5px;">
-                            <a class="Prescribe" href="Prescribe_Medication_Page.php?appointment_id=<?php echo $row['id']; ?>">Prescribe</a>
-                        </div>
-                    <?php endif; ?>
-                </td>
-            </tr>
+<tr id="row-<?php echo $row['id']; ?>">
+  <td><?php echo $row['date']; ?></td>
+  <td><?php echo date("g A", strtotime($row['time'])); ?></td>
+  <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
+  <td><?php echo date("Y") - date("Y", strtotime($row['DoB'])); ?></td>
+  <td><?php echo $row['gender']; ?></td>
+  <td><?php echo $row['reason']; ?></td>
+  <td class="status-cell">
+    <?php if ($row['status'] === 'Pending'): ?>
+      <button class="Confirm confirm-btn" data-id="<?php echo $row['id']; ?>">Confirm</button>
+      <div class="status-text">Pending</div>
+    <?php else: ?>
+      <div class="status-text">Confirmed</div>
+      <div style="margin-top: 5px;">
+        <a class="Prescribe" href="Prescribe_Medication_Page.php?appointment_id=<?php echo $row['id']; ?>">Prescribe</a>
+      </div>
+    <?php endif; ?>
+  </td>
+</tr>
+
         <?php endwhile; ?>
         </tbody>
     </table>
