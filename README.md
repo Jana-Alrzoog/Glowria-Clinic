@@ -1,7 +1,7 @@
 # 💫 Glowria Clinic
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fd79417a-eed4-45c4-b9ac-10f083fcff9d" width="200" alt="Glowria Logo"/>
+  <img src="./a12b70e0-6f97-4382-8cac-32887d11f370.png" width="400" alt="Glowria Logo"/>
 </p>
 
 ---
