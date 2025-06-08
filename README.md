@@ -1,13 +1,13 @@
 # 💫 Glowria Clinic
 
 <p align="center">
-  <img src="./dcb4a1d1-12ad-4199-beac-f000efd0a91b.png" width="200" alt="Glowria Logo"/>
+  <img src="https://github.com/user-attachments/assets/fd79417a-eed4-45c4-b9ac-10f083fcff9d" width="200" alt="Glowria Logo"/>
 </p>
 
 ---
 
 ## 🌐 Visit the Live Website
-👉 [Glowria Clinic](https://glowria-clinic.infinityfreeapp.com/Glowria-Clinic/Home.html)
+🔗 [https://glowria-clinic.infinityfreeapp.com/Glowria-Clinic/Home.html](https://glowria-clinic.infinityfreeapp.com/Glowria-Clinic/Home.html)
 
 ---
 
